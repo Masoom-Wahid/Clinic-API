@@ -257,6 +257,7 @@ class PatientView(ModelViewSet):
         return Response(
             status=status.HTTP_204_NO_CONTENT
         )
+     
 
     def update(self, request, pk=None):
         instance = Patient.objects.get(id=pk)

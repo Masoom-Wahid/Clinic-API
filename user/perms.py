@@ -17,6 +17,9 @@ class IsStaff(BasePermission):
 
 
 class IsAdminOrStaff(BasePermission):
+    SAFE_METHODS = ['GET']
     def has_permission(self, request, view):
+        if request.method in self.SAFE_METHODS:
+            return True
         return request.user.is_superuser or request.user.is_staff
 
