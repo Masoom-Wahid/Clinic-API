@@ -146,7 +146,7 @@ class PatientView(ModelViewSet):
                 PatientLogs.objects.create(
                     patient=patient,
                     user=request.user,
-                    msg=f"Received {treatment.get("paid")} by {request.user.username} on {get_curr_time()}",
+                    msg=f'Received {treatment.get("paid")} by {request.user.username} on {get_curr_time()}',
                 )
 
     @action(
