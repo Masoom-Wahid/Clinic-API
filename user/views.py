@@ -52,8 +52,7 @@ class ChatViewSet(ListModelMixin, GenericViewSet):
                 msg = Messages.objects.create(  # type:ignore
                     room=room,
                     type="share",
-                    text=f"{patient_instance.id},{patient_instance.name} {
-                        patient_instance.last_name}",
+                    text=f"{patient_instance.id},{patient_instance.name} {patient_instance.last_name}",
                     sender=request.user,
                     receiver=user
                 )
