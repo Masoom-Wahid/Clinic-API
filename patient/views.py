@@ -133,8 +133,8 @@ class PatientView(ModelViewSet):
             PatientLogs.objects.create(  # type:ignore
                 patient=patient,
                 user=request.user,
-                msg=f"Created Treatment '{instance.type_of_treatment}' With Price Of {
-                    instance.amount} By {request.user.username} on {get_curr_time()}"
+                msg=f"""Created Treatment '{instance.type_of_treatment}' With Price Of {
+                    instance.amount} By {request.user.username} on {get_curr_time()}"""
             )
 
             if treatment.get("paid", None):
@@ -146,8 +146,7 @@ class PatientView(ModelViewSet):
                 PatientLogs.objects.create(
                     patient=patient,
                     user=request.user,
-                    msg=f"Received {treatment.get("paid")} by {request.user.username} on {
-                        get_curr_time()}",
+                    msg=f"Received {treatment.get("paid")} by {request.user.username} on {get_curr_time()}",
                 )
 
     @action(
@@ -376,8 +375,7 @@ class TreatmentViewSet(
         PatientLogs.objects.create(
             patient=instance.patient,
             user=request.user,
-            msg=f"Received {paid} by {
-                request.user.username} on {get_curr_time()}"
+            msg=f"Received {paid} by {request.user.username} on {get_curr_time()}"
         )
 
         return Response(
